@@ -8,7 +8,7 @@ My collection of dockerfiles to dockerize my development enviroment.
 1. `devenv:nodejs` installed nodejs on top of `devenv:base` 
 1. `devenv:ruby` installed rbenv on top of `devenv:base`
 
-# How-To create images
+# How to create images
 
 ## Create `devenv:base` image
 
@@ -38,12 +38,12 @@ rbenv global 3.2.2
 gem install rails
 ```
 
-on another terminal, update devenv:base running a commit
+on another terminal, update devenv:ruby running `docker commit`
 ```bash
-docker commit ruby devenv:base
+docker commit ruby devenv:ruby
 ```
 
-Now you have the final image version
+After the commit, devenv:ruby image includes ruby 3.2.2 and rails. 
 
 # How I run my containers
 
@@ -65,3 +65,8 @@ sudo docker run --name some-app-project \
 --net myappnet --publish 3000:3000 \
 devenv:nodejs"
 ```
+
+
+And to avoid write down those commands every time, I created a few Terminal profiles
+
+![image](https://github.com/ecureuill/docker-development-enviroment/assets/993369/4464683d-f457-499b-8411-1b2c825c75bd)
